@@ -6,7 +6,17 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		CE4D5F3C2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */; };
+		CE4D5F3D2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */; };
+		CEC9B3DC2FA0AD3600C6D693 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */; };
+		CEC9B3DE2FA0AD3600C6D693 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3DD2FA0AD3600C6D693 /* SDWebImageMapKit */; };
+		CEC9B3E12FA0AD4700C6D693 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3E02FA0AD4700C6D693 /* Reachability */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEC9B3592FA08F9E00C6D693 /* Top-League.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top-League.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,6 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC9B3DC2FA0AD3600C6D693 /* SDWebImage in Frameworks */,
+				CEC9B3E12FA0AD4700C6D693 /* Reachability in Frameworks */,
+				CEC9B3DE2FA0AD3600C6D693 /* SDWebImageMapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +58,8 @@
 		CEC9B3502FA08F9E00C6D693 = {
 			isa = PBXGroup;
 			children = (
+				CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */,
+				CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */,
 				CEC9B35B2FA08F9E00C6D693 /* Top-League */,
 				CEC9B35A2FA08F9E00C6D693 /* Products */,
 			);
@@ -78,6 +93,9 @@
 			);
 			name = "Top-League";
 			packageProductDependencies = (
+				CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */,
+				CEC9B3DD2FA0AD3600C6D693 /* SDWebImageMapKit */,
+				CEC9B3E02FA0AD4700C6D693 /* Reachability */,
 			);
 			productName = "Top-League";
 			productReference = CEC9B3592FA08F9E00C6D693 /* Top-League.app */;
@@ -107,6 +125,10 @@
 			);
 			mainGroup = CEC9B3502FA08F9E00C6D693;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				CEC9B3DF2FA0AD4700C6D693 /* XCRemoteSwiftPackageReference "Reachability" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CEC9B35A2FA08F9E00C6D693 /* Products */;
 			projectDirPath = "";
@@ -132,6 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4D5F3C2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift in Sources */,
+				CE4D5F3D2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,7 +172,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Top-League/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -175,7 +199,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Top-League/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -333,6 +357,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.7;
+			};
+		};
+		CEC9B3DF2FA0AD4700C6D693 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		CEC9B3DD2FA0AD3600C6D693 /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
+		};
+		CEC9B3E02FA0AD4700C6D693 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC9B3DF2FA0AD4700C6D693 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CEC9B3512FA08F9E00C6D693 /* Project object */;
 }
