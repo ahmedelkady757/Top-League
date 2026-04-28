@@ -18,6 +18,8 @@ extension LeagueCD {
 
     @NSManaged public var image: Data?
     @NSManaged public var name: String?
+    @NSManaged public var id: Int32
+    @NSManaged public var sportId: Int32
 
 }
 

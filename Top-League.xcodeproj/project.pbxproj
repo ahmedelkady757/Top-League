@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4D5F3C2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */; };
+		CE4D5F3D2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */; };
 		CEC9B3DC2FA0AD3600C6D693 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */; };
 		CEC9B3DE2FA0AD3600C6D693 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3DD2FA0AD3600C6D693 /* SDWebImageMapKit */; };
 		CEC9B3E12FA0AD4700C6D693 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3E02FA0AD4700C6D693 /* Reachability */; };
-		CEC9B4492FA0C93500C6D693 /* LeagueCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9B4472FA0C93500C6D693 /* LeagueCD+CoreDataClass.swift */; };
-		CEC9B44A2FA0C93500C6D693 /* LeagueCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC9B4482FA0C93500C6D693 /* LeagueCD+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CEC9B3592FA08F9E00C6D693 /* Top-League.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Top-League.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEC9B4472FA0C93500C6D693 /* LeagueCD+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataClass.swift"; sourceTree = "<group>"; };
-		CEC9B4482FA0C93500C6D693 /* LeagueCD+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LeagueCD+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -58,8 +58,8 @@
 		CEC9B3502FA08F9E00C6D693 = {
 			isa = PBXGroup;
 			children = (
-				CEC9B4472FA0C93500C6D693 /* LeagueCD+CoreDataClass.swift */,
-				CEC9B4482FA0C93500C6D693 /* LeagueCD+CoreDataProperties.swift */,
+				CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */,
+				CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */,
 				CEC9B35B2FA08F9E00C6D693 /* Top-League */,
 				CEC9B35A2FA08F9E00C6D693 /* Products */,
 			);
@@ -154,8 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEC9B4492FA0C93500C6D693 /* LeagueCD+CoreDataClass.swift in Sources */,
-				CEC9B44A2FA0C93500C6D693 /* LeagueCD+CoreDataProperties.swift in Sources */,
+				CE4D5F3C2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift in Sources */,
+				CE4D5F3D2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
