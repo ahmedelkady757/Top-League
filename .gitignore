@@ -15,3 +15,5 @@ Pods/
 # Build
 build/                  
 DerivedData/            
+Top-League.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved
+Top-League.xcodeproj/project.xcworkspace/xcuserdata/jetsmobilelabmini6.xcuserdatad/UserInterfaceState.xcuserstate
