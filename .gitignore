@@ -2,9 +2,9 @@
 Secrets.xcconfig        
 
 # Xcode
-# *.xcuserstate           
-# xcuserdata/             
-# *.xcworkspace/xcuserdata/
+*.xcuserstate           
+xcuserdata/             
+*.xcworkspace/xcuserdata/
 
 # macOS
 .DS_Store               
