@@ -28,16 +28,36 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         // Pass the selected object to the new view controller.
     }
     */
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let w = (UIScreen.main.bounds.width - 50)/2
-        return CGSize(width: w, height: w)
+    override func viewWillTransition(to size: CGSize,
+                                     with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+
+        coordinator.animate(alongsideTransition: { _ in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+        })
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let width = collectionView.bounds.width
+
+        let columns: CGFloat = width > 500 ? 4 : 2
+
+        let spacing: CGFloat = 15
+        let inset: CGFloat = 10
+
+        let totalSpacing = ((columns - 1) * spacing) + (inset * 2)
+
+        let cellWidth = (width - totalSpacing) / columns
+
+        return CGSize(width: cellWidth, height: 170)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 15
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return 15
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
