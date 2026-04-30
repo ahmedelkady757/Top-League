@@ -1,0 +1,17 @@
+# Secret Keys
+Secrets.xcconfig        
+
+# Xcode
+*.xcuserstate           
+xcuserdata/             
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store               
+
+# CocoaPods
+Pods/                  
+
+# Build
+build/                  
+DerivedData/            
