@@ -24,5 +24,9 @@ class LeaguesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func config(name: String, image:Data){
+        leagueName.text = name
+        leagueImage.image = UIImage(data: image)
+    }
     
 }

@@ -8,11 +8,14 @@
 import UIKit
 
 class FavLeaguesTableViewController: UITableViewController {
-
+    var presenter : FavLeaguesPresenter!
+    var indecator = UIActivityIndicatorView(style: .large)
     override func viewDidLoad() {
         super.viewDidLoad()
         let nib = UINib(nibName: "LeaguesTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "LeaguesTableViewCell")
+        presenter = FavLeaguesPresenter(view: self)
+        presenter.getLeaguesList()
     }
 
     // MARK: - Table view data source
@@ -24,15 +27,15 @@ class FavLeaguesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return presenter.getListCount()
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesTableViewCell", for: indexPath) as! LeaguesTableViewCell
 
-        // Configure the cell...
-
+        let league = presenter.getListItem(index: indexPath.row)
+        cell.config(name: league.name!, image: league.image!)
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -47,17 +50,16 @@ class FavLeaguesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            presenter.deleteItem(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -83,5 +85,27 @@ class FavLeaguesTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+}
+extension FavLeaguesTableViewController : FavleaguesView{
+    func isLoading() {
+        indecator.center = view.center
+        indecator.color = UIColor(named: "PrimaryColor")
+        indecator.startAnimating()
+        view.addSubview(indecator)
+    }
+    
+    func hideLoading() {
+        indecator.stopAnimating()
+        indecator.removeFromSuperview()
+    }
+    
+    func listIsEmpty() {
+        print("list is empty")
+    }
+    
+    func realoadList() {
+        tableView.reloadData()
+    }
+    
+    
 }
