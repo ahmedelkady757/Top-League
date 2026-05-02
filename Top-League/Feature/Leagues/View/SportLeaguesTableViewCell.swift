@@ -9,9 +9,15 @@ import UIKit
 
 class SportLeaguesTableViewCell: UITableViewCell {
 
+  
+    @IBOutlet weak var leagueName: UILabel!
+    @IBOutlet weak var leagueImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        leagueImage.layer.cornerRadius = leagueImage.frame.size.width / 2
+        leagueImage.clipsToBounds = true
+        leagueImage.contentMode = .scaleAspectFill
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

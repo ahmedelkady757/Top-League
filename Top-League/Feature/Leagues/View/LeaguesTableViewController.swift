@@ -8,34 +8,58 @@
 import UIKit
 
 class LeaguesTableViewController: UITableViewController {
+    var presenter : LeaguesPresenterProtocol!
+    var indecator = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "LeaguesTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "LeaguesTableViewCell")
+        let nib = UINib(nibName: "SportLeaguesTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "SportLeaguesTableViewCell")
+        presenter.fetchLeagues()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 2
+        return presenter.getListCount()
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaguesTableViewCell", for: indexPath) as! LeaguesTableViewCell
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "SportLeaguesTableViewCell",
+            for: indexPath
+        ) as! SportLeaguesTableViewCell
+
+        let league = presenter.getListItem(index: indexPath.row)
+
+        cell.leagueName.text = league.name
+
+        presenter.fetchImageData(from: league.badgeURL ?? "") { [weak self] data in
+
+            guard let self = self,
+                  let data = data else { return }
+
+            DispatchQueue.main.async {
+
+                if let visibleCell = tableView.cellForRow(at: indexPath) as? SportLeaguesTableViewCell {
+                    visibleCell.leagueImage.image = UIImage(data: data)
+                }
+            }
+        }
 
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,4 +106,37 @@ class LeaguesTableViewController: UITableViewController {
     }
     */
 
+}
+extension LeaguesTableViewController : LeaguesView{
+    
+    func listIsEmpty() {
+        let emptyImage = UIImage(named: "empty_favorites")
+        let imageView = UIImageView(image: emptyImage)
+                
+        imageView.contentMode = .center
+                
+        self.tableView.backgroundView = imageView
+        self.tableView.separatorStyle = .none
+    }
+    
+    func realoadList() {
+        self.tableView.backgroundView = nil
+        self.tableView.separatorStyle = .singleLine
+        self.tableView.separatorColor = UIColor(named: "PrimaryColor")
+        tableView.reloadData()
+    }
+
+    func isLoading() {
+        indecator.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
+        indecator.color = UIColor(named: "PrimaryColor")
+        indecator.startAnimating()
+        view.addSubview(indecator)
+    }
+    
+    func hideLoading() {
+        indecator.stopAnimating()
+        indecator.removeFromSuperview()
+    }
+    
+    
 }
