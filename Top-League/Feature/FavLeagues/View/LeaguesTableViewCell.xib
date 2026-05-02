@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lW-wL-vae">
-                        <rect key="frame" x="110" y="43.666666666666664" width="258" height="20"/>
+                        <rect key="frame" x="109.99999999999999" y="43.666666666666664" width="234.66666666666663" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -29,13 +30,19 @@
                             <constraint firstAttribute="width" constant="75" id="x5B-X2-E4O"/>
                         </constraints>
                     </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="heart.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="IKd-Uu-xtc">
+                        <rect key="frame" x="345" y="39" width="28" height="24"/>
+                        <color key="tintColor" systemColor="systemRedColor"/>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="5lW-wL-vae" firstAttribute="leading" secondItem="O3a-jA-lp5" secondAttribute="trailing" constant="26" id="6hc-Io-cvS"/>
                     <constraint firstItem="5lW-wL-vae" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="AyU-v8-tf9"/>
                     <constraint firstItem="O3a-jA-lp5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="J0R-Ts-RZc"/>
-                    <constraint firstAttribute="trailing" secondItem="5lW-wL-vae" secondAttribute="trailing" constant="25" id="Jkz-tH-rCO"/>
                     <constraint firstItem="O3a-jA-lp5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hOk-VK-O4g"/>
+                    <constraint firstAttribute="trailing" secondItem="IKd-Uu-xtc" secondAttribute="trailing" constant="20" symbolic="YES" id="jGS-9o-Goa"/>
+                    <constraint firstItem="IKd-Uu-xtc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-3" id="moQ-2i-uJQ"/>
+                    <constraint firstItem="IKd-Uu-xtc" firstAttribute="leading" secondItem="5lW-wL-vae" secondAttribute="trailing" constant="7.6666666666666288" id="wAD-Eh-m89"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -47,6 +54,10 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="heart.fill" catalog="system" width="128" height="107"/>
         <image name="league" width="225" height="225"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
