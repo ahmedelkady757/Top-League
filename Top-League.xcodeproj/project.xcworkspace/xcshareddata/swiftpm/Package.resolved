@@ -1,6 +1,24 @@
 {
-  "originHash" : "69b8a31f51f0de0df3ff1e05c6e10c6f4bbba3907136505320769ec62a74d5df",
+  "originHash" : "5bc1578e7e0fe4953dd472016ca6ec5925199278ed4fe764c8c6e611d1456884",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire",
+      "state" : {
+        "revision" : "e938f8c66708e7352fc7e3512647fa54255b267a",
+        "version" : "5.11.2"
+      }
+    },
+    {
+      "identity" : "lottie-spm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/airbnb/lottie-spm.git",
+      "state" : {
+        "revision" : "69faaefa7721fba9e434a52c16adf4329c9084db",
+        "version" : "4.6.0"
+      }
+    },
     {
       "identity" : "reachability.swift",
       "kind" : "remoteSourceControl",
