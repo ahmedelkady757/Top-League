@@ -176,6 +176,47 @@
             </objects>
             <point key="canvasLocation" x="3243.5114503816794" y="382.3943661971831"/>
         </scene>
+        <!--League Details View Controller-->
+        <scene sceneID="LD-sc-001">
+            <objects>
+                <viewController storyboardIdentifier="LeagueDetailsViewController" id="LD-vc-001" customClass="LeagueDetailsViewController" customModule="Top_League" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LD-vw-001">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.039" green="0.055" blue="0.102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="LD-sa-001"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="LD-cv-main">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="backgroundColor" red="0.039" green="0.055" blue="0.102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LD-cl-main">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="LD-vc-001" id="LD-ds-main"/>
+                                    <outlet property="delegate" destination="LD-vc-001" id="LD-dl-main"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="LD-cv-main" firstAttribute="top" secondItem="LD-vw-001" secondAttribute="top" id="LD-c-top"/>
+                            <constraint firstItem="LD-cv-main" firstAttribute="bottom" secondItem="LD-vw-001" secondAttribute="bottom" id="LD-c-bot"/>
+                            <constraint firstItem="LD-cv-main" firstAttribute="leading" secondItem="LD-vw-001" secondAttribute="leading" id="LD-c-ld"/>
+                            <constraint firstItem="LD-cv-main" firstAttribute="trailing" secondItem="LD-vw-001" secondAttribute="trailing" id="LD-c-tr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="LD-ni-001"/>
+                    <connections>
+                        <outlet property="collectionView" destination="LD-cv-main" id="LD-out-cv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LD-fr-001" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7200" y="-425"/>
+        </scene>
     </scenes>
     <resources>
         <image name="fav" width="25" height="25"/>

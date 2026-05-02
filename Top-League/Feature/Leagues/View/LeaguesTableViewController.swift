@@ -61,6 +61,31 @@ class LeaguesTableViewController: UITableViewController {
         return 90
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let league = presenter.getListItem(index: indexPath.row)
+        let sport  = getSportType(from: (presenter as? LeaguesPresenter)?.sportIndex ?? 0)
+
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        guard let detailVC = sb.instantiateViewController(withIdentifier: "LeagueDetailsViewController")
+                as? LeagueDetailsViewController else { return }
+
+        detailVC.league = league
+        detailVC.sport  = sport
+        detailVC.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+
+    private func getSportType(from index: Int) -> SportType {
+        switch index {
+        case 0: return .football
+        case 1: return .basketball
+        case 2: return .cricket
+        default: return .tennis
+        }
+    }
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
