@@ -23,6 +23,8 @@ protocol NetworkService {
     func fetchTeams(leagueId: String, sport: SportType, completion: @escaping ([Team]?, Error?) -> Void)
     
     func fetchTeamDetails(teamId: String, sport: SportType, completion: @escaping (Team?, Error?) -> Void)
+    
+    func fetchPlayers(leagueId: String, sport: SportType, completion: @escaping ([Player]?, Error?) -> Void)
 }
 
 class AlamofireNetworkService: NetworkService {
@@ -48,20 +50,59 @@ class AlamofireNetworkService: NetworkService {
     ) {
         var params = parameters
         params["APIkey"] = apiKey
-        
-        AF.request(url, parameters: params).responseData { response in
-            switch response.result {
-            case .success(let data):
-                do {
-                    let decodedResponse = try JSONDecoder().decode(ApiResponse<T>.self, from: data)
-                    completion(decodedResponse.result, nil)
-                } catch {
+
+        // Decode on a background queue so the main thread is never blocked
+        AF.request(url, parameters: params)
+            .responseData(queue: .global(qos: .userInitiated)) { response in
+                switch response.result {
+                case .success(let data):
+                    do {
+                        let decoded = try JSONDecoder().decode(ApiResponse<T>.self, from: data)
+                        completion(decoded.result, nil)
+                    } catch {
+                        completion(nil, error)
+                    }
+                case .failure(let error):
                     completion(nil, error)
                 }
-            case .failure(let error):
-                completion(nil, error)
+            }
+    }
+
+    // MARK: - Async Wrappers (for true parallel async/await usage)
+
+    private func performRequestAsync<T: Decodable>(url: String, parameters: [String: Any]) async -> [T] {
+        await withCheckedContinuation { continuation in
+            performRequest(url: url, parameters: parameters) { (result: [T]?, _) in
+                continuation.resume(returning: result ?? [])
             }
         }
+    }
+
+    func fetchEventsAsync(sport: SportType, leagueId: String, from: String, to: String) async -> [SportEvent] {
+        var params: [String: Any] = ["met": "Fixtures", "from": from, "to": to]
+        if sport != .tennis { params["leagueId"] = leagueId }
+        switch sport {
+        case .football, .basketball:
+            let r: [FootballEvent] = await performRequestAsync(url: sport.baseURL, parameters: params)
+            return r
+        case .cricket:
+            let r: [CricketEvent] = await performRequestAsync(url: sport.baseURL, parameters: params)
+            return r
+        case .tennis:
+            let r: [TennisEvent] = await performRequestAsync(url: sport.baseURL, parameters: params)
+            return r
+        }
+    }
+
+    func fetchTeamsAsync(leagueId: String, sport: SportType) async -> [Team] {
+        guard sport != .tennis else { return [] }
+        let params: [String: Any] = ["met": "Teams", "leagueId": leagueId]
+        return await performRequestAsync(url: sport.baseURL, parameters: params)
+    }
+
+    func fetchPlayersAsync(leagueId: String) async -> [Player] {
+        let params: [String: Any] = ["met": "Players", "leagueId": leagueId]
+        return await performRequestAsync(url: SportType.tennis.baseURL, parameters: params)
     }
 
 
@@ -129,5 +170,13 @@ class AlamofireNetworkService: NetworkService {
         performRequest(url: sport.baseURL, parameters: params) { (teams: [Team]?, error) in
             completion(teams?.first, error)
         }
+    }
+
+    func fetchPlayers(leagueId: String, sport: SportType, completion: @escaping ([Player]?, Error?) -> Void) {
+        let params: [String: Any] = [
+            "met": "Players",
+            "leagueId": leagueId
+        ]
+        performRequest(url: sport.baseURL, parameters: params, completion: completion)
     }
 }

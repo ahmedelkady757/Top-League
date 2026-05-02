@@ -27,6 +27,14 @@ extension SportEvent {
     }
     
     var isLive: Bool {
-        return eventStatus == "Live" || eventStatus == "1"
+        let status = eventStatus?.lowercased() ?? ""
+        let liveStatuses = ["live", "1", "in progress", "playing", "ht", "1h", "2h", "halftime", "running", "started"]
+        if liveStatuses.contains(status) { return true }
+        
+        // Many APIs return the current match minute as the status (e.g., "45", "89", "12'")
+        let cleanedStatus = status.replacingOccurrences(of: "'", with: "")
+        if Int(cleanedStatus) != nil { return true }
+        
+        return false
     }
 }
