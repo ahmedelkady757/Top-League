@@ -31,28 +31,8 @@ class UpcomingEventCell: UICollectionViewCell {
         awayNameLabel.text = event.awayTitle ?? "TBD"
         dateLabel.text     = event.eventDate ?? ""
         timeLabel.text     = formatTime12Hour(event.eventTime)
-        var showLive = event.isLive
-        
-        if !showLive {
-            let df = DateFormatter()
-            df.locale = Locale(identifier: "en_US_POSIX")
-            let formats = ["yyyy-MM-dd HH:mm", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd hh:mm a"]
-            let dateStr = event.eventDate ?? ""
-            let timeStr = event.eventTime ?? ""
-            let tStr = timeStr.isEmpty ? "00:00" : timeStr
-            
-            for f in formats {
-                df.dateFormat = f
-                if let d = df.date(from: "\(dateStr) \(tStr)"), d <= Date() {
-                    showLive = true
-                    break
-                }
-            }
-        }
-        
-        liveBadgeView.isHidden = !showLive
-
-        if showLive { startLivePulse() }
+        liveBadgeView.isHidden = !event.isLive
+        if event.isLive { startLivePulse() }
 
         loadImage(from: event.homeLogo, into: homeLogoImage, sport: sport)
         loadImage(from: event.awayLogo, into: awayLogoImage, sport: sport)

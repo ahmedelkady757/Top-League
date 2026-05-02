@@ -23,7 +23,7 @@
                         <color key="backgroundColor" red="0.074" green="0.098" blue="0.157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <subviews>
                             <!-- LIVE badge container -->
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-live-view">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-live-view">
                                 <rect key="frame" x="152" y="8" width="40" height="18"/>
                                 <color key="backgroundColor" red="1" green="0.231" blue="0.188" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <subviews>
@@ -47,14 +47,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-home-img">
                                 <rect key="frame" x="16" y="24" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="uEC-hiw"/>
-                                    <constraint firstAttribute="height" constant="50" id="uEC-hih"/>
+                                    <constraint firstAttribute="width" secondItem="uEC-home-img" secondAttribute="height" multiplier="1:1" id="uEC-hiw"/>
                                 </constraints>
                             </imageView>
                             <!-- VS label -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="VS" textAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-vs">
                                 <rect key="frame" x="157" y="39" width="30" height="20"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" red="0.961" green="0.773" blue="0.094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <constraints>
@@ -65,28 +64,27 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-away-img">
                                 <rect key="frame" x="278" y="24" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="uEC-aiw"/>
-                                    <constraint firstAttribute="height" constant="50" id="uEC-aih"/>
+                                    <constraint firstAttribute="width" secondItem="uEC-away-img" secondAttribute="height" multiplier="1:1" id="uEC-aiw"/>
                                 </constraints>
                             </imageView>
                             <!-- Home Name -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Home Team" textAlignment="right" lineBreakMode="middleTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-home-lbl">
                                 <rect key="frame" x="74" y="40" width="75" height="14.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <!-- Away Name -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Away Team" textAlignment="left" lineBreakMode="middleTruncation" numberOfLines="2" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-away-lbl">
                                 <rect key="frame" x="195" y="40" width="75" height="14.333333333333336"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <!-- Time Label -->
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="18:00" textAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEC-time">
                                 <rect key="frame" x="156.66666666666666" y="83" width="31" height="14.333333333333329"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                 <color key="textColor" red="0.961" green="0.773" blue="0.094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -105,12 +103,14 @@
                             
                             <constraint firstItem="uEC-home-img" firstAttribute="leading" secondItem="uEC-card" secondAttribute="leading" constant="16" id="uEC-c3"/>
                             <constraint firstItem="uEC-home-img" firstAttribute="centerY" secondItem="uEC-card" secondAttribute="centerY" constant="-20" id="uEC-c4"/>
+                            <constraint firstItem="uEC-home-img" firstAttribute="height" secondItem="uEC-card" secondAttribute="height" multiplier="0.38" id="uEC-c4h"/>
                             
                             <constraint firstItem="uEC-vs" firstAttribute="centerX" secondItem="uEC-card" secondAttribute="centerX" id="uEC-c5"/>
                             <constraint firstItem="uEC-vs" firstAttribute="centerY" secondItem="uEC-home-img" secondAttribute="centerY" id="uEC-c6"/>
                             
                             <constraint firstItem="uEC-away-img" firstAttribute="trailing" secondItem="uEC-card" secondAttribute="trailing" constant="-16" id="uEC-c7"/>
                             <constraint firstItem="uEC-away-img" firstAttribute="centerY" secondItem="uEC-home-img" secondAttribute="centerY" id="uEC-c8"/>
+                            <constraint firstItem="uEC-away-img" firstAttribute="height" secondItem="uEC-home-img" secondAttribute="height" id="uEC-c8h"/>
                             
                             <constraint firstItem="uEC-home-lbl" firstAttribute="leading" secondItem="uEC-home-img" secondAttribute="trailing" constant="8" id="uEC-c18"/>
                             <constraint firstItem="uEC-home-lbl" firstAttribute="trailing" secondItem="uEC-vs" secondAttribute="leading" constant="-8" id="uEC-c19"/>
