@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE4EE0612FA618F50062EF18 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BE4EE0602FA618F50062EF18 /* Lottie */; };
+		BEFA67532FA371E6000EC068 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = BEFA67522FA371E6000EC068 /* Alamofire */; };
 		CE4D5F3C2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3B2FA0D15200608C5B /* LeagueCD+CoreDataProperties.swift */; };
 		CE4D5F3D2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4D5F3A2FA0D15200608C5B /* LeagueCD+CoreDataClass.swift */; };
 		CEC9B3DC2FA0AD3600C6D693 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */; };
@@ -46,7 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE4EE0612FA618F50062EF18 /* Lottie in Frameworks */,
 				CEC9B3DC2FA0AD3600C6D693 /* SDWebImage in Frameworks */,
+				BEFA67532FA371E6000EC068 /* Alamofire in Frameworks */,
 				CEC9B3E12FA0AD4700C6D693 /* Reachability in Frameworks */,
 				CEC9B3DE2FA0AD3600C6D693 /* SDWebImageMapKit in Frameworks */,
 			);
@@ -96,6 +100,8 @@
 				CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */,
 				CEC9B3DD2FA0AD3600C6D693 /* SDWebImageMapKit */,
 				CEC9B3E02FA0AD4700C6D693 /* Reachability */,
+				BEFA67522FA371E6000EC068 /* Alamofire */,
+				BE4EE0602FA618F50062EF18 /* Lottie */,
 			);
 			productName = "Top-League";
 			productReference = CEC9B3592FA08F9E00C6D693 /* Top-League.app */;
@@ -128,6 +134,8 @@
 			packageReferences = (
 				CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				CEC9B3DF2FA0AD4700C6D693 /* XCRemoteSwiftPackageReference "Reachability" */,
+				BEFA67512FA371E6000EC068 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				BE4EE05F2FA618F50062EF18 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = CEC9B35A2FA08F9E00C6D693 /* Products */;
@@ -174,8 +182,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -201,8 +208,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -218,6 +224,8 @@
 		};
 		CEC9B3722FA08FA100C6D693 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = CEC9B35B2FA08F9E00C6D693 /* Top-League */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -281,6 +289,8 @@
 		};
 		CEC9B3732FA08FA100C6D693 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = CEC9B35B2FA08F9E00C6D693 /* Top-League */;
+			baseConfigurationReferenceRelativePath = Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -359,6 +369,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BE4EE05F2FA618F50062EF18 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.6.0;
+			};
+		};
+		BEFA67512FA371E6000EC068 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.11.2;
+			};
+		};
 		CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -378,6 +404,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		BE4EE0602FA618F50062EF18 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE4EE05F2FA618F50062EF18 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+		BEFA67522FA371E6000EC068 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BEFA67512FA371E6000EC068 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		CEC9B3DB2FA0AD3600C6D693 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CEC9B3DA2FA0AD3600C6D693 /* XCRemoteSwiftPackageReference "SDWebImage" */;
